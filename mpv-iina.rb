@@ -4,8 +4,8 @@
 class MpvIina < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.34.1.tar.gz"
-  sha256 "32ded8c13b6398310fa27767378193dc1db6d78b006b70dbcbd3123a1445e746"
+  url "https://github.com/mpv-player/mpv/archive/v0.35.0.tar.gz"
+  sha256 "dc411c899a64548250c142bf1fa1aa7528f1b4398a24c86b816093999049ec00"
   head "https://github.com/mpv-player/mpv.git"
 
   keg_only "it is intended to only be used for building IINA. This formula is not recommended for daily use"
@@ -22,6 +22,7 @@ class MpvIina < Formula
   depends_on "little-cms2"
   depends_on "luajit-openresty"
   depends_on "libbluray"
+#  depends_on "libplacebo"
 
   depends_on "mujs"
   depends_on "uchardet"
@@ -57,9 +58,9 @@ class MpvIina < Formula
       --lua=luajit
     ]
 
-    system Formula["python@3.9"].opt_bin/"python3", "bootstrap.py"
-    system Formula["python@3.9"].opt_bin/"python3", "waf", "configure", *args
-    system Formula["python@3.9"].opt_bin/"python3", "waf", "install"
+    system Formula["python@3.9"].opt_bin/"python3.9", "bootstrap.py"
+    system Formula["python@3.9"].opt_bin/"python3.9", "waf", "configure", *args
+    system Formula["python@3.9"].opt_bin/"python3.9", "waf", "install"
   end
 
   test do
